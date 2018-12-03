@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const config = require('./config/dev');
 const FakeDb = require('./fake-db');
+const cors = require('cors');
 
 const app = express();
 
@@ -13,7 +14,7 @@ const Rental = require('./models/rental-model');
 
 mongoose
   .connect(
-    config.DB_URI,
+    config.LOCAL,
     { useNewUrlParser: true }
   )
   .then(() => {
@@ -23,6 +24,7 @@ mongoose
   })
   .catch(err => console.error('Failed to connect to MongoDB'));
 
+app.use(cors());
 app.use('/api/v1/rentals', rentalRoutes);
 
 const port = process.env.PORT || 3000;
