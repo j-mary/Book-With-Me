@@ -7,6 +7,7 @@ import { HeaderComponent } from './components/UI/header/header.component';
 import { RentalComponent } from './components/rental/rental.component';
 
 import { RentalModule } from './components/rental/rental.module';
+import { MapService } from './components/common/map/map.service';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'rentals' }
@@ -22,7 +23,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     RentalModule
   ],
-  providers: [],
+  providers: [MapService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
