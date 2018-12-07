@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
 const rentalSchema = new mongoose.Schema({
   title: {
@@ -35,7 +36,9 @@ const rentalSchema = new mongoose.Schema({
   createdAt: {
     type: Date,
     default: Date.now
-  }
+  },
+  user: { type: Schema.Types.ObjectId, ref: 'User' },
+  bookings: [{ type: Schema.Types.ObjectId, ref: 'Booking' }]
 });
 
 const Rental = mongoose.model('Rental', rentalSchema);
