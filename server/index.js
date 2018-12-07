@@ -19,8 +19,8 @@ mongoose
     { useNewUrlParser: true }
   )
   .then(() => {
-    const fakeDb = new FakeDb();
-    fakeDb.seedDb();
+    // const fakeDb = new FakeDb();
+    // fakeDb.seedDb();
     console.log('MongoDB Connected...');
   })
   .catch(err => console.error('Failed to connect to MongoDB'));
